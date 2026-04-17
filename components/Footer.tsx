@@ -23,7 +23,7 @@ export default function Footer() {
             <p className="font-mono text-sm">
               <span className="text-purple-400">ishan malik</span>
               <span className="text-slate-600 mx-2">·</span>
-              <span className="text-blue-400/70">agentic developer &amp; ml researcher</span>
+              <span className="text-blue-400/70">ml researcher &amp; ai developer</span>
             </p>
             <p className="font-mono text-xs text-slate-600">
               New York University · {new Date().getFullYear()}

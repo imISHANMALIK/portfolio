@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Mail, ExternalLink } from "lucide-react";
-import Terminal from "./Terminal";
+import Image from "next/image";
 import { HERO_DATA } from "@/data/portfolio";
 
 const fadeUp = (delay = 0) => ({
@@ -99,19 +99,33 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* ── Right: Terminal ───────────────────────────────────────────────── */}
+        {/* ── Right: Profile Picture ───────────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, x: 28 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" as const }}
-          className="flex flex-col items-center lg:items-end gap-4"
+          className="flex flex-col items-center lg:items-end gap-6"
         >
-          <div className="w-full max-w-sm lg:max-w-md animate-float">
-            <Terminal />
+          <div className="relative animate-float">
+            {/* Outer glow */}
+            <div className="absolute -inset-4 rounded-full bg-purple-600/15 blur-2xl" />
+            {/* Gradient ring */}
+            <div className="relative rounded-full p-[3px] bg-gradient-to-br from-purple-500 via-blue-500 to-purple-800 shadow-2xl shadow-purple-900/40">
+              <div className="rounded-full overflow-hidden w-56 h-56 lg:w-64 lg:h-64 bg-slate-900">
+                <Image
+                  src="/profile.jpg"
+                  alt="Ishan Malik"
+                  width={256}
+                  height={256}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
+            </div>
           </div>
-          {/* Floating tag pills */}
+          {/* Tag pills */}
           <div className="flex gap-2 flex-wrap justify-center lg:justify-end">
-            {["RL · Finance", "OT · JAX", "Agentic AI"].map((t) => (
+            {["Healthcare AI", "NLP · CV", "NYU CDS"].map((t) => (
               <span
                 key={t}
                 className="glass px-3 py-1 rounded-full border border-white/[0.06] font-mono text-xs text-slate-500"
